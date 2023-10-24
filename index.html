@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="english">
+    <head>
+        <title>Mini-project! Library of Congress API</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="" />
+    </head>
+    <body>
+
+    <div class="jumbotron bg-dark text-light p-5 d-flex justify-content-center">
+        <div class="row">
+            <h1 class="col-md-12 display-4 d-flex justify-content-center">Search the Library of Congress</h1><br>
+            <h2 class="col-md-12 lead d-flex justify-content-center">Using their amazing API!</h2>
+        </div>
+    </div>
+
+    <div class="row p-5">
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header bg-dark text-light">Instructions</h5>
+                <div class="card-body">
+                    <h5 class="card-title py-2">Enter your criteria below</h5>
+                    <form>
+                        Search for:
+                        <input type="text" class="form-control my-1" id="query"></input>
+                        Media type:
+                        <select class="form-control my-1" id="format">
+                            <option>All</option>
+                            <option>Maps</option>
+                            <option>Audio</option>
+                            <option>Photos</option>
+                            <option>Newspapers</option>
+                            <option>Film-and-videos</option>
+                            <option>Notated-music</option>
+                            <option>Websites</option>
+                        </select>
+                        <button type="button" class="btn btn-primary my-2" id="search_btn">
+                        Search!
+                        </button> 
+                    </form>
+                      
+                </div>
+            </div>
+        </div>
+        <!-- Project table -->
+        <div class="col-md-9">
+            <table class="table table-striped" id="project_table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Read More</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        $('#search_btn').on('click', function(e) {
+            e.preventDefault();
+            var userQuery = $('#query').val();
+            var mediaFormat = $('#format').val();
+
+            var addressAppend = '?q=' + userQuery + '&fo=' + mediaFormat;
+            document.location.replace('search_results.html'+addressAppend);
+        });
+    </script>
+</body>
+</HTML>
