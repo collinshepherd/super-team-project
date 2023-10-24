@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="english">
-    <head>
-        <title>Mini-project! Library of Congress API</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="" />
-    </head>
-    <body>
+
+<head>
+    <title>Mini-project! Library of Congress API</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+</head>
+
+<body>
 
     <div class="jumbotron bg-dark text-light p-5 d-flex justify-content-center">
         <div class="row">
@@ -35,10 +37,10 @@
                             <option>Websites</option>
                         </select>
                         <button type="button" class="btn btn-primary my-2" id="search_btn">
-                        Search!
-                        </button> 
+                            Search!
+                        </button>
                     </form>
-                      
+
                 </div>
             </div>
         </div>
@@ -62,14 +64,15 @@
 
 
     <script>
-        $('#search_btn').on('click', function(e) {
+        $('#search_btn').on('click', function (e) {
             e.preventDefault();
             var userQuery = $('#query').val();
             var mediaFormat = $('#format').val();
 
             var addressAppend = '?q=' + userQuery + '&fo=' + mediaFormat;
-            document.location.replace('search_results.html'+addressAppend);
+            document.location.replace('search_results.html' + addressAppend);
         });
     </script>
 </body>
+
 </HTML>
